@@ -17,7 +17,11 @@ def img_to_pdf():
 
 		file_path = INPUT_PATH+file_name
 		print("Merging",file_name,"to pdf...")
-		img = Image.open(file_path)
+		try:
+			img = Image.open(file_path)
+		except:
+			print("Unsupported file format")
+			continue
 		width,height = img.size
 
 		# convert px to pt
